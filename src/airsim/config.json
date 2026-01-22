@@ -1,6 +1,6 @@
 {
     "API_TYPE": "vllm",
-    "OPENAI_API_KEY": "sk-2e233b03af88416f9042a1fa4995dce0",
+    "OPENAI_API_KEY": "XXXXXXXXXXXXXXXXXXX",
     "OPENAI_BASE_URL": "https://dashscope.aliyuncs.com/compatible-mode/v1",
     "OPENAI_MODEL": "qwen2.5-vl-72b-instruct",
     "OLLAMA_MODEL": "qwen2.5vl:7b-q8_0",
