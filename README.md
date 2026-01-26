@@ -1,11 +1,10 @@
 # Fly0: Decoupling Semantic Grounding from Geometric Planning for Zero-Shot Aerial Navigation
 
-We introduce Fly0, a modular framework designed to decouple high-level semantic reasoning from low-level geometric planning for aerial navigation. Instead of forcing Multimodal Large Language Models (MLLMs) to directly output control signals—a paradigm prone to inefficiency and instability—Fly0 repositions the MLLM as a dedicated semantic observer. Its role is to identify 2D target coordinates from visual-language inputs, which are then accurately projected into 3D space using depth-informed back-projection. Following this, a specialized gradient-based planner​ takes over to generate smooth, dynamically sound, and collision-free trajectories. This explicit separation of perception and action enables more robust, efficient, and scalable autonomous flight.
+We introduce Fly0, a modular framework designed to decouple high-level semantic reasoning from low-level geometric planning for aerial navigation. Instead of forcing Multimodal Large Language Models (MLLMs) to directly output control signals—a paradigm prone to inefficiency and instability—Fly0 repositions the MLLM as a dedicated semantic observer. Its role is to identify 2D target coordinates from visual-language inputs, which are then accurately projected into 3D space using depth-informed back-projection. Following this, a specialized gradient-based planner takes over to generate smooth, dynamically sound, and collision-free trajectories. This explicit separation of perception and action enables more robust, efficient, and scalable autonomous flight.
 
 ## System Overview
 
 ![Figure 1-2](docs/fig1-2.png)
-
 
 ## Configuration
 
@@ -41,15 +40,18 @@ The system uses a JSON configuration file (`config.json`) to manage all settings
 **API_TYPE**: Choose from `"ollama"`, `"openai"`, or `"vllm"`
 
 **OpenAI Configuration:**
+
 - `OPENAI_API_KEY`: Your OpenAI API key
 - `OPENAI_BASE_URL`: API endpoint (default: https://api.openai.com/v1)
 - `OPENAI_MODEL`: Model name (e.g., gpt-4-vision-preview, qwen2.5-vl-72b-instruct)
 
 **Ollama Configuration:**
+
 - `OLLAMA_MODEL`: Model name (e.g., llama3.2-vision, qwen2.5vl:3b-fp16)
 - Default URL: http://localhost:11434
 
 **VLLM Configuration:**
+
 - `VLLM_BASE_URL`: VLLM server URL
 - `VLLM_MODEL`: Model name
 - `OPENAI_API_KEY`: API key (can be "EMPTY" for local servers)
@@ -75,6 +77,7 @@ The system prompt (`sysprompt/sysprompt.txt`) defines the behavior and capabilit
 - Add domain-specific knowledge
 
 Example system prompt:
+
 ```
 You are an assistant helping me use the AirSim drone simulator.
 When I ask you to do something, you should only provide the Python code needed to complete the task using AirSim. Do not add any explanations.
@@ -118,6 +121,8 @@ git clone https://gitee.com/brikit/fly0.git
 cd fly0
 ```
 
+**Note for users in China**: Please use the Gitee link above for faster and more stable access.
+
 ### Step 2: Create Virtual Environment (Recommended)
 
 ```bash
@@ -142,7 +147,6 @@ pip install airsim==1.8.1 --no-build-isolation
 
 Follow the official [AirSim installation guide](https://microsoft.github.io/AirSim/build/windows/) to install AirSim on your system.
 
-
 ## Quick Start
 
 ### 1. Start AirSim
@@ -162,7 +166,8 @@ python ./main.py
 
 ### 4. Issue Commands
 
-After running `python ./main.py`, a terminal window will open. 
+After running `python ./main.py`, a terminal window will open.
+
 ```
 ╔══════════════════════════════════════════════════════════════╗
 ║          🚁 Drone Natural Language Control System  🚁        ║
@@ -181,10 +186,11 @@ Enter command or !help for help
 For first-time use, please enter the following command in the  terminal (important!):
 
 ```
-Take off and yaw to 0 degrees
+>Take off and yaw to 0 degrees
 ```
 
 **Note**: The system has two modes:
+
 - **Flight mode** (default): LLM generates Python code for drone control
 - **Chat mode**: LLM provides general assistance and explanations
 

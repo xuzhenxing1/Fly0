@@ -98,6 +98,8 @@ git clone https://gitee.com/brikit/fly0.git
 cd fly0
 ```
 
+**国内用户请使用上述Gitee链接**，以获得更快更稳定的访问速度。
+
 ### 步骤 2：创建虚拟环境（推荐）
 
 ```bash
